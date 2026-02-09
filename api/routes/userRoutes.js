@@ -1,16 +1,12 @@
 import express from "express";
-import User from "../models/User.js";
-
 const router = express.Router();
 
-router.post("/users", async (req, res) => {
-  const user = await User.create(req.body);
-  res.json(user);
+router.get("/users", (req, res) => {
+  res.json([{ name: "Demo", email: "demo@gmail.com" }]);
 });
 
-router.get("/users", async (req, res) => {
-  const users = await User.find();
-  res.json(users);
+router.post("/users", (req, res) => {
+  res.json({ message: "User added" });
 });
 
 export default router;
